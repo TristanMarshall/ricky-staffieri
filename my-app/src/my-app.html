@@ -1,0 +1,255 @@
+<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,900|Source+Sans+Pro:300,400,600,700" rel="stylesheet">
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/app-route/app-location.html">
+<link rel="import" href="../bower_components/app-route/app-route.html">
+<link rel="import" href="../bower_components/app-layout/app-drawer-layout/app-drawer-layout.html">
+<link rel="import" href="../bower_components/app-layout/app-drawer/app-drawer.html">
+<link rel="import" href="../bower_components/app-layout/app-scroll-effects/app-scroll-effects.html">
+<link rel="import" href="../bower_components/app-layout/app-header/app-header.html">
+<link rel="import" href="../bower_components/app-layout/app-header-layout/app-header-layout.html">
+<link rel="import" href="../bower_components/app-layout/app-toolbar/app-toolbar.html">
+<link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
+<link rel="import" href="../bower_components/iron-pages/iron-pages.html">
+<link rel="import" href="../bower_components/iron-selector/iron-selector.html">
+<link rel="import" href="my-icons.html">
+
+<dom-module id="my-app">
+
+  <template>
+
+    <style is="custom-style">
+
+      :host {
+        display: block;
+        --app-primary-color: #151515;
+        --app-secondary-color: grey;
+      }
+
+      app-header {
+        background-color: var(--app-primary-color);
+        color: #fff;
+        box-shadow: 2px 2px 18px 0px rgba(92,92,92,1);
+      }
+
+      app-header paper-icon-button {
+        --paper-icon-button-ink-color: white;
+      }
+
+      app-toolbar {
+        font-size: 14px;
+        color: white;
+        font-weight: 300;
+      }
+
+app-drawer-layout:-webkit-full-screen-ancestor app-header,
+app-drawer-layout:-webkit-full-screen-ancestor app-drawer {
+  z-index: -1 !important;
+}
+
+      .menuLine {
+        margin-top: -1px;
+        background-color: rgba(255, 255, 255, 0.15);
+      }
+
+      app-drawer {
+        --app-drawer-width: 250px;
+      }
+
+      .appDrawer {
+        background-color: #212121;
+      }
+
+      .appDrawerBackground {
+        height: 100%;
+        background-color: #282828;
+      }
+
+      hr {
+        border: none;
+        padding-bottom: 1px;
+        background-color: rgba(0, 0, 0, 0.15);
+      }
+
+      .menu-line {
+        border: none;
+        padding-bottom: 1px;
+        background-color: rgba(255, 255, 255, 0.15);
+      }
+
+      .headerImg {
+        height: 16px;
+        padding-left: 14px;
+      }
+
+      .drawer-list {
+        margin: 0 20px;
+        background-color: red;
+      }
+
+      .drawer-list a {
+        display: block;
+        padding: 0 16px;
+        line-height: 75px;
+        letter-spacing: 2px;
+        font-weight: 300;
+        font-size: 14px;
+        text-decoration: none;
+        color: rgba(255, 255, 255, .6);
+      }
+
+      .active-class:hover {
+        color: grey;
+      }
+
+      .active-class:active {
+        color: blue;
+      }
+
+      .drawer-list .active-class:active {
+        color: white;
+      }
+
+
+      .drawer-list .homeMargin {
+        margin-top: -24px;
+      }
+
+      .drawer-list a.iron-selected {
+        color: rgba(255, 255, 255, 0.98);
+        font-weight: 200;
+      }
+      .drawer-list a.subroute {
+        padding-left: 32px;
+      }
+
+      .moble-show {
+        display: none;
+      }
+
+      .mobile-hide {
+        display: block;
+      }
+
+
+      @media (max-width: 640px) {
+        .mobile-show {
+          display: block;
+        }
+        .mobile-hide {
+          display: none;
+        }
+      }
+
+
+    </style>
+
+
+    <app-location route="{{route}}"></app-location>
+    <app-route
+        route="{{route}}"
+        pattern="/:page"
+        data="{{routeData}}"
+        tail="{{subroute}}"></app-route>
+
+    <app-drawer-layout fullbleed>
+
+      <!-- Drawer content -->
+      <app-drawer paper-drawer-toggle class="appDrawer" id="menu">
+        <div class="appDrawerBackground mobile-hide">
+          <app-toolbar class="appDrawer">Menu</app-toolbar>
+          <hr class="menuLine">
+          <iron-selector selected="[[page]]" attr-for-selected="name" class="drawer-list" role="navigation">
+            <a class="active-class homeMargin" name="home" href="/home">About</a>
+            <hr class="menu-line">
+            <a class="active-class" name="view1" href="/acting">Acting</a>
+            <hr class="menu-line">
+            <a class="active-class" name="view2" href="/produce">Directing / Producing</a>
+            <hr class="menu-line">
+            <a class="active-class" name="view3" href="/contact">Contact</a>
+            <hr class="menu-line">
+
+          </iron-selector>
+        </div>
+
+
+        <div class="appDrawerBackground mobile-show">
+          <app-toolbar class="appDrawer" drawer-toggle>Menu</app-toolbar>
+          <hr class="menuLine">
+          <iron-selector selected="[[page]]" attr-for-selected="name" class="drawer-list" role="navigation">
+            <a class="active-class homeMargin" name="home" href="/home" drawer-toggle>About</a>
+            <hr class="menu-line">
+            <a class="active-class" name="view1" href="/acting" drawer-toggle>Acting</a>
+            <hr class="menu-line">
+            <a class="active-class" name="view2" href="/produce" drawer-toggle>Directing / Producing</a>
+            <hr class="menu-line">
+            <a class="active-class" name="view3" href="/contact" drawer-toggle>Contact</a>
+            <hr class="menu-line">
+
+          </iron-selector>
+        </div>
+      </app-drawer>
+
+      <!-- Main content -->
+      <app-header-layout has-scrolling-region>
+
+        <app-header condenses reveals effects="waterfall">
+          <app-toolbar>
+            <paper-icon-button icon="menu" drawer-toggle></paper-icon-button>
+            <div title>
+              <img class="headerImg" src="/images/toolbar-logo.png">
+            </div>
+          </app-toolbar>
+        </app-header>
+
+        <iron-pages role="main" selected="[[page]]" attr-for-selected="name">
+          <my-home name="home"></my-home>
+          <my-acting name="acting"></my-acting>
+          <my-produce name="produce"></my-produce>
+          <my-contact name="contact"></my-contact>
+        </iron-pages>
+
+      </app-header-layout>
+
+    </app-drawer-layout>
+
+  </template>
+
+  <script>
+
+    Polymer({
+
+      is: 'my-app',
+
+      properties: {
+
+        page: {
+          type: String,
+          reflectToAttribute: true,
+          observer: '_pageChanged'
+        },
+
+      },
+
+      observers: [
+        '_routePageChanged(routeData.page)'
+      ],
+
+      // closeMenu: function() {
+      //   this.$.menu.close();
+      // },
+
+      _routePageChanged: function(page) {
+        this.page = page || 'home';
+      },
+
+      _pageChanged: function(page) {
+        // load page import on demand.
+        this.importHref(
+          this.resolveUrl('my-' + page + '.html'), null, null, true);
+      }
+
+    });
+
+  </script>
+
+</dom-module>

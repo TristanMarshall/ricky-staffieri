@@ -1,0 +1,267 @@
+<!--
+@license
+Copyright (c) 2016 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="../bower_components/paper-dialog/paper-dialog.html">
+
+
+<dom-module id="my-acting">
+
+  <template>
+
+    <style>
+      :host {
+        display: block;
+        padding: 10px;
+      }
+      .card {
+        margin: 16px;
+        background-color: #fff;
+        color: #757575;
+        max-width: 760px;
+      }
+
+      hr {
+        border: none;
+        padding-bottom: 1px;
+        background-color: rgba(0, 0, 0, .15);
+      }
+
+      .download-div {
+        max-width: 500px;
+        font-family: 'Roboto', sans-serif;
+        color: rgba(0, 0, 0, .6);
+        font-size: 14px;
+      }
+
+      .download {
+        font-family: 'Roboto', sans-serif;
+        text-decoration: none;
+        font-style: inherit;
+        font-size: 12px;
+      }
+
+      .frameDiv {
+        max-width: 760px;
+      }
+
+      .header {
+        margin-top: 18px;
+        font-size: 20px;
+        letter-spacing: 4px;
+        margin-bottom: 0px;
+        color: rgba(0,0,0,0.75);
+        font-weight: 400;
+      }
+      
+      .content {
+        max-width: 760px;
+        text-align: justify;
+        font-size: 14px;
+        font-weight: 300;
+        line-height: 25px; 
+        color: rgba(0,0,0,0.75);
+      }
+
+      h1 {
+        font-size: 24px;
+        margin: 8px 0;
+        color: #656565;
+        font-weight: 300;
+        letter-spacing: 1px;
+        color: rgba(0,0,0,0.75);
+      }
+
+      .dividingLine {
+        margin-bottom: 50px;
+      }
+
+      .galleryImgTag {
+        height: 200px;
+        cursor: pointer;
+        width: 100%
+      }
+
+      .dialogImageContainer {
+        max-width: 500px;
+        min-width: 200px;
+        text-align: center;
+        margin: 0 auto;
+      }
+
+      .dialogImage {
+        width: 100%;
+        height: auto;
+      }
+
+      paper-dialog {
+        width: auto;
+        height: auto;
+        background-color: white;
+        text-align: center;
+        top: 60px;
+
+        max-width: 500px;
+        margin: 0 auto;
+        padding: 10px;
+        padding-top: 0px;
+        box-shadow: 0px 4px 65px 6px rgba(0,0,0,0.55);
+      }
+
+      .dialog-close-div {
+        text-align: right;
+        margin-top: 15px;
+        padding-right: 0px;
+        margin-bottom: -10px;
+      }
+
+      a {
+        text-decoration: none;
+        color: var(--paper-blue-600);
+        font-weight: 400;
+        font-family: roboto;
+      }
+
+      .galleryImage {
+        background-size: 100%; 
+        width: 49%; height: 175px; 
+        max-width: 240px; 
+        display: inline-block; 
+        text-align: center; 
+        overflow: hidden; 
+        background-repeat: no-repeat;
+      }
+
+      @media (max-width: 970px) {
+        paper-dialog {
+          margin-left: 1000px;
+          background-color: white;
+          padding: 0px;
+        }
+
+        iframe {
+          height: 400px;
+        }
+       }
+
+      @media (max-width: 640px) {
+        paper-dialog {
+          margin: 0 auto;
+          margin-left: 0px;
+        }
+
+        iframe {
+          height: 300px;
+        }
+
+        .card {
+          padding: 0px;
+          margin: 0px;
+        }
+
+        a {
+          text-decoration: none;
+          color: #1e88e5;
+          font-weight: 400;
+          font-family: roboto;
+          font-size: 14px;
+        }
+      }
+
+    </style>
+
+    <div class="card">
+      <h1>Acting</h1>
+      <div class="download-div">
+        To view &amp; download Rickys <b>Acting Resume</b> click here: 
+        <a class="download" href="/downloads/resume-acting.pdf" target="_blank" download>CLICK HERE</a>
+        <br>
+        <br>
+        Or to view Ricky on <b>IMDB</b> <a class="download" target="_blank" href="http://www.imdb.com/name/nm4841657/">CLICK HERE</a>
+      </div>
+      <div class="frameDiv">
+      <hr class="dividingLine">
+        <iframe width="100%" height="425px;" src="https://player.vimeo.com/video/131608960" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+      </div>
+      <h3 class="header">
+        Acting reel credits:
+      </h3>
+      <ul class="content">
+      <li>
+        <b>AMC - Better Call Saul</b> - Directed by Peter Gould
+      </li>
+      <li>
+        <b>NBC: Chicago PD</b> - Directed by Holly Dale
+      </li>
+      <li>
+        <b>Independent Short</b> - Happy Birthday Indeed 
+      </li>
+
+      </ul>
+      <hr class="dividingLine">
+      <h3 class="header">Gallery</h3>
+      <br>
+      <paper-dialog id="dialogToggle">
+      <div class="dialog-close-div" on-tap="closeDialog">
+        <img style="width: 14px;" src="/images/small-icon-plus.png">
+      </div>
+        <div class="dialogImageContainer">
+          <img class="dialogImage" src="{{photoProperty}}">
+        </div>
+      </paper-dialog>
+
+      <template is="dom-repeat" items="{{photos}}">
+        <div on-tap="galleryDialog" class="galleryImage" style="background-image: url({{item}});">
+        </div>
+      </template>
+      </div>
+  </template>
+
+  <script>
+
+    Polymer({
+
+      is: 'my-acting',
+      properties: {
+        photoProperty: {
+          type: String,
+          notify: true
+        }
+      },
+
+      galleryDialog: function(e) {
+        var index = e.model.index;
+        this.set("photoProperty", this.photos[index]);
+        console.log(this.photos[index]);
+        this.$.dialogToggle.open();
+        console.log("dialog toggle open");
+      },
+
+      closeDialog: function() {
+        this.$.dialogToggle.close();
+      },
+
+      ready: function() {
+              this.photos = [
+                '/images/gallery-1.jpg',
+                '/images/gallery-2.jpg',
+                '/images/gallery-3.jpg',
+                '/images/gallery-4.jpg',
+                '/images/gallery-5.jpg',
+                '/images/gallery-6.jpg'
+              ];
+            },
+
+    });
+
+  </script>
+
+</dom-module>

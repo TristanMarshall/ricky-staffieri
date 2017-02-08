@@ -1,0 +1,172 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/paper-input/paper-input.html">
+
+<dom-module id="my-contact">
+
+  <template>
+
+    <style>
+      :host {
+        display: block;
+        padding: 10px;
+      }
+      .card {
+        margin: 16px;
+        background-color: #fff;
+        color: #757575;
+        max-width: 760px;
+      }
+
+      .download-div {
+        max-width: 500px;
+        font-family: 'Roboto', sans-serif;
+        color: rgba(0, 0, 0, .6);
+        font-size: 14px;
+      }
+
+      .download {
+        font-family: 'Roboto', sans-serif;
+        text-decoration: none;
+        font-style: inherit;
+        font-size: 12px;
+      }
+
+      h1 {
+        font-size: 24px;
+        margin: 8px 0;
+        color: #656565;
+        font-weight: 300;
+        letter-spacing: 1px;
+        color: rgba(0,0,0,0.75);
+      }
+
+      .dividingLine {
+        margin-bottom: 50px;
+      }
+
+      .header {
+        margin-top: 18px;
+        font-size: 20px;
+        letter-spacing: 4px;
+        margin-bottom: 0px;
+        color: rgba(0,0,0,0.75);
+        font-weight: 400;
+      }
+
+      .email {
+        color: #633fc6;
+      }
+
+      hr {
+        border: none;
+        padding-bottom: 1px;
+        background-color: rgba(0, 0, 0, 0.15);
+      }
+
+      p {
+        font-weight: 300;
+        line-height: 30px;
+        letter-spacing: 1px;
+        margin-left: 30px;
+      }
+
+      span {
+        font-weight: 500;
+      }
+
+      a:link, a:visited {
+        text-decoration: none;
+        color: #2196F3;
+        font-size: 15px;
+        font-weight: 400;
+      }
+
+      @media (max-width: 640px) {
+        paper-dialog {
+          margin: 0 auto;
+          margin-left: 0px;
+        }
+
+        .card {
+          padding: 0px;
+          margin: 0px;
+        }
+
+        p {
+          margin-left: 0px;
+          font-size: 12px;
+        }
+      }
+
+    </style>
+    
+    <div class="card">
+      <h1>Contact Information</h1> 
+      <div class="download-div">
+        <b>Acting Resume</b> click here: 
+        <a class="download" href="/downloads/resume-acting.pdf" target="_blank" download>CLICK HERE</a>
+        <br>
+        <b>Directing / Producing Resume</b> click here: 
+        <a class="download" href="/downloads/resume-producing.pdf" target="_blank" download>CLICK HERE</a>
+        <hr class="dividingLine">
+      </div>
+      <template is="dom-repeat" items="{{contacts}}">
+        <div>
+          <h3 class="header">{{item.title}}</h3>
+            <p><span>{{item.name}}</span>{{item.employer}}
+            <br>
+            Email:
+            <a class="email" href="{{item.href}}">{{item.email}}</a>
+            <br>
+            phone: <a href="{{item.tel}}">{{item.phone}}</a>
+            </p>
+          <br>
+          <hr class="dividingLine">
+        </div>
+      </template>
+  </template>
+
+  <script>
+
+    Polymer({
+
+      is: 'my-contact',
+      properties: {
+
+      },
+
+      ready: function() {
+        this.contacts = [
+          {
+            name: "Ricky Staffieri",
+            employer: "",
+            href: "mailto:rickystaffieri@gmail.com",
+            email: "rickystaffieri@gmail.com",
+            tel: "tel:702-743-4927",
+            phone: "(702) 743-4927"
+          },
+          {
+            title: "AGENT:",
+            name: "KaCee Hudson",
+            employer: " - Shirley Hamilton Talent Agency",
+            href: "mailto:kacee@shirleyhamiltontalent.com",
+            email: "kacee@shirleyhamiltontalent.com",
+            tel: "tel:312-787-4700",
+            phone: "(312) 787-4700"
+          },
+          {
+            title: "MANAGER:",
+            name: "John Baldasare",
+            employer: "",
+            href: "mailto:john@velocity-ent.com",
+            email: "john@velocity-ent.com",
+            tel: "tel:323-230-8850",
+            phone: "(323) 230-8850"
+          }
+        ];
+      }
+    });
+
+  </script>
+
+</dom-module>

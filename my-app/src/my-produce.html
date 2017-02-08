@@ -1,0 +1,263 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="../bower_components/iron-icons/iron-icons.html">
+<link rel="import" href="../bower_components/google-youtube/google-youtube.html">
+
+
+<dom-module id="my-produce">
+
+  <template>
+
+    <style is="custom-style">
+      :host {
+        display: block;
+        padding: 10px;
+      }
+
+      .flex-equal-justified {
+        @apply(--layout-horizontal);
+        @apply(--layout-justified);
+      }
+
+      .card {
+        margin: 16px;
+        background-color: #fff;
+        color: #757575;
+        max-width: 760px;
+      }
+
+      .download-div {
+        max-width: 500px;
+        font-family: 'Roboto', sans-serif;
+        color: rgba(0, 0, 0, .6);
+        font-size: 14px;
+      }
+
+      .download {
+        font-family: 'Roboto', sans-serif;
+        text-decoration: none;
+        font-style: inherit;
+        font-size: 12px;
+      }
+
+      .dividingLine {
+        margin-bottom: 50px;
+      }
+
+      .frameDiv {
+        max-width: 760px;
+      }
+
+      .video-tag {
+        width: 100%;
+        max-width: 760px;
+      }
+
+      .header {
+        margin-top: 18px;
+        font-size: 20px;
+        letter-spacing: 4px;
+        margin-bottom: 0px;
+        color: rgba(0,0,0,0.75);
+        font-weight: 400;
+      }
+
+      .subheader {
+        font-size: 14px;
+        font-style: italic;
+        color: rgba(0,0,0,0.75);
+        margin-top: 0px;
+      } 
+
+      .mainP { 
+        max-width: 760px;
+        text-align: justify;
+        font-size: 14px;
+        font-weight: 300;
+        line-height: 25px; 
+        color: rgba(0,0,0,0.75);
+      }
+
+      h1 {
+        font-size: 24px;
+        margin: 8px 0;
+        color: #656565;
+        font-weight: 300;
+        letter-spacing: 1px;
+        color: rgba(0,0,0,0.75);
+      }
+
+      a {
+        text-decoration: none;
+        color: var(--paper-blue-600);
+        font-weight: 400;
+        font-family: roboto;
+      }
+
+      .container {
+        max-width: 760px;
+      }
+
+      hr {
+        border: none;
+        padding-bottom: 1px;
+        background-color: rgba(0, 0, 0, 0.15);
+      }
+
+
+      .headerFlex {
+        max-width: 760px;
+      }
+
+      .sectionMargin {
+        margin-bottom: 50px;
+      }
+
+      .linkInfo {
+        font-weight: 300;
+      }
+
+      @media (max-width: 640px) {
+
+        .download-div {
+          font-size: 12px;
+        }
+        .header {
+          font-size: 16px;
+        }
+
+        .subheader {
+          font-size: 10px;
+          text-align: right;
+          max-width: 600px;
+        }
+
+        a {
+          text-decoration: none;
+          color: #1e88e5;
+          font-weight: 400;
+          font-family: roboto;
+          font-size: 14px;
+        }
+
+        .linkInfo {
+          font-weight: 300;
+          font-size: 12px;
+          text-align: center;
+          padding-top: 6px;
+        }
+
+        .card {
+          padding: 0px;
+          margin: 0px;
+        }
+      }
+
+    </style>
+
+    <div class="card">
+      <h1>Directing / Producing</h1> 
+      <div class="download-div">
+        To view &amp; download Rickys <b>Directing / Producing Resume</b> click here: 
+        <a class="download" href="/downloads/resume-producing.pdf" target="_blank" download>CLICK HERE</a>
+      </div>
+      <div class="container">
+        <hr class="dividingLine">
+        <div class="frameDiv">
+          <video class="video-tag" src="/videos/bulace.mov" controls poster="/images/bulace.png">
+          Sorry, your browser doesn't support embedded videos :/ 
+          </video>
+        </div>
+        <div class="container flex-equal-justified headerFlex">
+          <div>
+            <h3 class="header">Carly Chaikin- Bulace Magazine</h3>
+          </div>
+          <div>
+            <p class="subheader">Los Angeles, California</p>
+          </div>
+        </div>
+        <p class="mainP">Take a look at behind the scenes of Bulace Magazines photo shoot featuring Carly Chaikin from hit TV show Mr. Robot.
+        </p>
+        <hr class="dividingLine">
+      </div>
+      <template is="dom-repeat" items="{{projects}}">
+        <div class="container">
+          <div class="frameDiv">
+            <google-youtube
+              video-id="{{item.videoId}}"
+              height="425px"
+              width="100%"
+              rel="0"
+              start="0"
+              autoplay="0">
+            </google-youtube>
+          </div>
+          <div class="container flex-equal-justified headerFlex">
+            <div>
+              <h3 class="header">{{item.header}}</h3>
+            </div>
+            <div>
+              <p class="subheader">{{item.location}}</p>
+            </div>
+          </div>
+          <p class="mainP">{{item.content}}
+          </p>
+          <div class="container flex-equal-justified headerFlex sectionMargin">
+            <div class="linkInfo">
+              {{item.linkTitle}}:
+            </div>
+            <div>
+              <a href="{{item.link}}" target="_blank" >CLICK HERE</a>
+            </div>
+          </div>
+          <hr class="dividingLine">
+        </div>
+      </template>
+    </div>
+  </template>
+  <script>
+
+    Polymer({
+
+      is: 'my-produce',
+        properties: {
+
+      },
+
+      ready: function() {
+              this.projects = [
+                {
+                  videoId: "SLxD1YaZx_0",
+                  header: "LAKE EFFECT",
+                  location: "Chicago, IL / 2015",
+                  content: "Chicago isn’t for the faint of heart… Downtown is a madhouse, the train smells like piss, and the weather is infectious. Lake Effect is a collection of comedic scenes that focus on the characters that inhabit the windy city. ",
+                  linkTitle: "To view all of Lake Effects Videos",
+                  link: "https://www.youtube.com/channel/UCNkmLfva3lX4aPM-eai8oPA/featured",
+                },
+                {
+                 videoId: "V4GcS2mFOA8", 
+                  header: "BLOOD OATH",
+                  location: "Chicago, IL / 2015",
+                  content: "Hailing from Chicago Blood Oath is a six man improv and sketch comedy group performing live shows in Chicago and the Los Angeles area. Featured is the trailer for our sketch pilot which was written and produced by the group!",
+                  linkTitle: "To view all of Blood Oaths Videos",
+                  link: "https://www.youtube.com/channel/UCpja4CoHsNDR5okuuhNrWxQ/feed"
+                },
+                {
+                  videoId: "wvKpLyBWxJk",
+                  header: "Who are the GAWDS?",
+                  location: "Los Angeles, California",
+                  content: "Follow Thelonious Gawd and Jerry Shineﬁeld two up and coming rap artist from Las Vegas as they take us through a day in the life performing at Noise in The Hood an underground showcase in Down Town Los Angeles.", 
+                  linkTitle: "To view video on Youtube",
+                  link: "https://www.youtube.com/watch?v=wvKpLyBWxJk"
+                }
+              ];
+            }
+
+          });
+
+  </script>
+
+</dom-module>
+
+
+

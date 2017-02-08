@@ -1,0 +1,124 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="../bower_components/paper-dialog/paper-dialog.html">
+<link rel="import" href="../bower_components/font-roboto/roboto.html">
+
+<dom-module id="my-home">
+
+  <template>
+
+    <style is="custom-style">
+      :host {
+        display: block;
+        padding: 10px;
+      }
+
+      .flex {
+        @apply(--layout-horizontal);
+      }
+
+      .card {
+        margin: 16px;
+        background-color: #fff;
+        color: #757575;
+        max-width: 760px;
+      }
+
+      .dividingLine {
+        margin-bottom: 50px;
+      }
+
+      .headShotDiv {
+        padding: 1px;
+        background-color: #bebebe;
+        width: 100%;
+      }
+
+      .headShot {
+        width: 100%;
+        margin-bottom: -6px;
+      }
+
+      h1 {
+        font-size: 24px;
+        margin: 8px 0;
+        color: #656565;
+        font-weight: 300;
+        letter-spacing: 1px;
+        color: rgba(0,0,0,0.75);
+      }
+
+      h5 {
+        font-family: 'Source Sans Pro', sans-serif;
+        font-size: 20px;
+        margin-bottom: 0px;
+      }
+
+      hr {
+        border: none;
+        padding-bottom: 1px;
+        background-color: rgba(0,0,0,0.3);
+      }
+
+      p {
+        font-family: 'Source Sans Pro', sans-serif;
+        color: rgba(0, 0, 0, 0.75);
+        letter-spacing: 0px;
+        font-weight: 300;
+        font-size: 16px;
+        text-align: justify;
+        line-height: 30px;
+        margin-top: 6px;
+      }
+
+      .font-weight {
+        font-weight: 400;
+      }
+
+      @media (max-width: 970px) {
+        paper-dialog {
+            margin-left: 1000px;
+            background-color: white;
+          }
+       }
+
+      @media (max-width: 640px) {
+        paper-dialog {
+          margin: 0 auto;
+          margin-left: 0px;
+        }
+
+        .card {
+          padding: 0px;
+          margin: 0px;
+        }
+      }
+      
+
+    </style>
+
+    <div class="card">
+      <h1>About</h1> 
+      <hr class="dividingLine">
+      <div class="headShotDiv">
+        <img class="headShot" src="/images/ricky.jpg">
+      </div>
+      <div class="title">Actor  /  Director  /  Producer</div>
+      <p><span class="font-weight">Ricky Stafﬁeri</span> is a Los Angeles based actor and freelance director and producer. Ricky received his BA in Theatre with a concentration in acting from Columbia College Chicago in 2013. Since then he has jumped into the ﬁlm world working on all sides of the camera.<br>In 2015 he appeared in AMC’s Better Call Saul season one ﬁnale directed by Peter Gould, as well as NBC’s Chicago PD. In addition to his training at Columbia College Chicago, he studied at several comedy theaters such as Second City and iO where he started performing with a six man sketch team called Blood Oath. <br> The team went on to write and produce live shows all around the city, selling out houses at popular theaters and touring nationally. After making the move to Los Angeles, Ricky has found himself working at every corner of the set on commercials, music videos, photo shoots, tv series, and independent ﬁlms. You can also keep an eye out for the new short ﬁlm that he wrote, directed, and produced - Coming out 2017 entitled El Bully.</p>
+      <hr>
+    </div>
+
+  </template>
+
+  <script>
+
+    Polymer({
+
+      is: 'my-home',
+      properties: {
+      },
+    });
+
+  </script>
+
+</dom-module>
