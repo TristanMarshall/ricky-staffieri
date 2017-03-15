@@ -3,8 +3,8 @@
   "shell": "src/my-app.html",
   "fragments": [
   	"src/my-home.html",
-    "src/acting.html",
-    "src/produce.html",
-    "src/contact.html"
+    "src/my-acting.html",
+    "src/my-produce.html",
+    "src/my-contact.html"
   ]
 }
