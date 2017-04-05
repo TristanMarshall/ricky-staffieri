@@ -6,5 +6,10 @@
     "src/my-acting.html",
     "src/my-produce.html",
     "src/my-contact.html"
+  ],
+  "sources": [
+  "images/*",
+  "downloads/*",
+  "bower.json"
   ]
 }

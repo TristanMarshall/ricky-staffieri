@@ -1,17 +1,6 @@
-<!--
-@license
-Copyright (c) 2016 The Polymer Project Authors. All rights reserved.
-This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
-The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
-The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
-Code distributed by Google as part of the polymer project is also
-subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
--->
-
 <link rel="import" href="../bower_components/polymer/polymer.html">
 <link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout.html">
 <link rel="import" href="../bower_components/paper-dialog/paper-dialog.html">
-
 
 <dom-module id="my-acting">
 
@@ -103,14 +92,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       }
 
       paper-dialog {
+
+        top: 70px;
+        margin: 20px;
         width: auto;
         height: auto;
         background-color: white;
         text-align: center;
-        top: 60px;
-
         max-width: 500px;
-        margin: 0 auto;
         padding: 10px;
         padding-top: 0px;
         box-shadow: 0px 4px 65px 6px rgba(0,0,0,0.55);
@@ -195,18 +184,17 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         Acting reel credits:
       </h3>
       <ul class="content">
-      <li>
-        <b>AMC - Better Call Saul</b> - Directed by Peter Gould
-      </li>
-      <li>
-        <b>NBC: Chicago PD</b> - Directed by Holly Dale
-      </li>
-      <li>
-        <b>Independent Short</b> - Happy Birthday Indeed 
-      </li>
-
+        <li>
+          <b>AMC - Better Call Saul</b> - Directed by Peter Gould
+        </li>
+        <li>
+          <b>NBC: Chicago PD</b> - Directed by Holly Dale
+        </li>
+        <li>
+          <b>Independent Short</b> - Happy Birthday Indeed 
+        </li>
       </ul>
-      <hr class="dividingLine">
+<!--       <hr class="dividingLine">
       <h3 class="header">Gallery</h3>
       <br>
       <paper-dialog id="dialogToggle">
@@ -222,7 +210,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         <div on-tap="galleryDialog" class="galleryImage" style="background-image: url({{item}});">
         </div>
       </template>
-      </div>
+      </div> -->
   </template>
 
   <script>

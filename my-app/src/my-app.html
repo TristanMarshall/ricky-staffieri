@@ -41,14 +41,19 @@
         font-weight: 300;
       }
 
-app-drawer-layout:-webkit-full-screen-ancestor app-header,
-app-drawer-layout:-webkit-full-screen-ancestor app-drawer {
-  z-index: -1 !important;
-}
+      app-drawer-layout:-webkit-full-screen-ancestor app-header,
+      app-drawer-layout:-webkit-full-screen-ancestor app-drawer {
+        z-index: -1 !important;
+      }
 
       .menuLine {
         margin-top: -1px;
         background-color: rgba(255, 255, 255, 0.15);
+      }
+
+      .menu-item-container {
+        width: 100%;
+        text-align: center;
       }
 
       app-drawer {
@@ -98,26 +103,17 @@ app-drawer-layout:-webkit-full-screen-ancestor app-drawer {
       }
 
       .active-class:hover {
-        color: grey;
+        color: var(--paper-blue-100);
       }
-
-      .active-class:active {
-        color: blue;
-      }
-
-      .drawer-list .active-class:active {
-        color: white;
-      }
-
 
       .drawer-list .homeMargin {
         margin-top: -24px;
       }
 
-      .drawer-list a.iron-selected {
-        color: rgba(255, 255, 255, 0.98);
-        font-weight: 200;
+      .drawer-list .menu-item-container.iron-selected a {
+        color: var(--paper-blue-500);
       }
+
       .drawer-list a.subroute {
         padding-left: 32px;
       }
@@ -156,35 +152,50 @@ app-drawer-layout:-webkit-full-screen-ancestor app-drawer {
       <!-- Drawer content -->
       <app-drawer paper-drawer-toggle class="appDrawer" id="menu">
         <div class="appDrawerBackground mobile-hide">
-          <app-toolbar class="appDrawer">Menu</app-toolbar>
+          <app-toolbar class="appDrawer"></app-toolbar>
           <hr class="menuLine">
           <iron-selector selected="[[page]]" attr-for-selected="name" class="drawer-list" role="navigation">
-            <a class="active-class homeMargin" name="home" href="/home">About</a>
-            <hr class="menu-line">
-            <a class="active-class" name="view1" href="/acting">Acting</a>
-            <hr class="menu-line">
-            <a class="active-class" name="view2" href="/produce">Directing / Producing</a>
-            <hr class="menu-line">
-            <a class="active-class" name="view3" href="/contact">Contact</a>
-            <hr class="menu-line">
+            <div class="menu-item-container" name="home">
+             <a class="active-class homeMargin" href="/home">About</a>
+             <hr class="menu-line"> 
+            </div>
+            <div class="menu-item-container" name="acting">
+             <a class="active-class" href="/acting">Acting</a>
+             <hr class="menu-line"> 
+            </div>        
+            <div class="menu-item-container" name="produce">
+             <a class="active-class" href="/produce">Directing / Producing</a>
+             <hr class="menu-line">
+            </div>
+            <div class="menu-item-container" name="contact">
+             <a class="active-class" href="/contact">Contact</a>
+             <hr class="menu-line">
+            </div>
 
           </iron-selector>
         </div>
 
 
         <div class="appDrawerBackground mobile-show">
-          <app-toolbar class="appDrawer" drawer-toggle>Menu</app-toolbar>
+          <app-toolbar class="appDrawer" drawer-toggle></app-toolbar>
           <hr class="menuLine">
           <iron-selector selected="[[page]]" attr-for-selected="name" class="drawer-list" role="navigation">
-            <a class="active-class homeMargin" name="home" href="/home" drawer-toggle>About</a>
-            <hr class="menu-line">
-            <a class="active-class" name="view1" href="/acting" drawer-toggle>Acting</a>
-            <hr class="menu-line">
-            <a class="active-class" name="view2" href="/produce" drawer-toggle>Directing / Producing</a>
-            <hr class="menu-line">
-            <a class="active-class" name="view3" href="/contact" drawer-toggle>Contact</a>
-            <hr class="menu-line">
-
+            <div class="menu-item-container" name="home">
+             <a class="active-class homeMargin" href="/home" drawer-toggle>About</a>
+             <hr class="menu-line"> 
+            </div>
+            <div class="menu-item-container" name="acting">
+             <a class="active-class" href="/acting" drawer-toggle>Acting</a>
+             <hr class="menu-line"> 
+            </div>        
+            <div class="menu-item-container" name="produce">
+             <a class="active-class" href="/produce" drawer-toggle>Directing / Producing</a>
+             <hr class="menu-line">
+            </div>
+            <div class="menu-item-container" name="contact">
+             <a class="active-class" href="/contact" drawer-toggle>Contact</a>
+             <hr class="menu-line">
+            </div>
           </iron-selector>
         </div>
       </app-drawer>
