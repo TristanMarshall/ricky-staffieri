@@ -4,12 +4,12 @@
 
 ##### Ricky Staffieris website includes: 
 
-*Examples of Web Development Projects
-*Acing Reel
-*Producing / Directing Work
-*Relevant contact information
+* Examples of Web Development Projects
+* Acing Reel
+* Producing / Directing Work
+* Relevant contact information
 
 
 ##### Technologies used:
-*The Polymer Project
-*Google Fonts used on this website ( Roboto )
+* The Polymer Project
+* Google Fonts used on this website ( Roboto )
